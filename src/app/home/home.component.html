@@ -1,0 +1,21 @@
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-4 col-lg-3 col-xl-2 mb-3">
+    <div style="cursor: pointer" (click)="viewProductPage(product.id)"  class="card">
+      <div class="card-body">
+        <div class="card-body">
+          <img class="img-fluid" src="{{product.img}}">
+          <div *ngIf="product.instock===1" class="text-center mt-3">
+            <label class="lbl success">Disponible</label>
+          </div>
+          <div *ngIf="product.instock===0" class="text-center mt-3">
+            <label class="lbl danger">No Disponible</label>
+          </div>
+          <h5 class="text-center">{{product.title}}</h5>
+          <h6 style="font-weight: 300" class="text-uppercase text-center">{{product.author}}</h6>
+          <h5 class="text-center">{{product.price}}€</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

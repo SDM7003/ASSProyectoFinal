@@ -1,0 +1,17 @@
+.linkClass{
+  color: black;
+  cursor: pointer;
+}
+.linkClass:hover{
+  color: #0abbb5;
+}
+table th, table td{
+  vertical-align: middle;
+}
+h3.totalPrice{
+  font-weight: 400;
+}
+h3.totalPrice span{
+  font-weight: bold;
+  color: #3acbc6;
+}

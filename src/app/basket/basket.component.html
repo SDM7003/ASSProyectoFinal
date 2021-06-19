@@ -1,0 +1,25 @@
+<h3>Cesta Compra</h3>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th colspan="2" scope="col">Articulo</th>
+    <th scope="2">Cantidad</th>
+    <th scope="col">Precio</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let line of lines">
+    <td width="80"><img class="img-fluid" src="{{line.product.img}}"></td>
+    <td colspan="2"><b class="linkClass" (click)="viewProductPage(line.product.id)">{{line.product.title}}</b></td>
+    <td width="2"><h5 class="text-center">{{line.quantity}}</h5></td>
+    <td width="80"><h5 class="text-center"><b>{{line.product.price}} €</b></h5></td>
+  </tr>
+  </tbody>
+</table>
+<hr>
+<h3 class="text-end totalPrice">Total: <span>{{totalCart | currency:'EUR'}}</span></h3>
+<hr>
+<div class="text-end">
+  <a [routerLink]="['/result']" class="btn btn-basket">Realizar pedido</a>
+</div>

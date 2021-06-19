@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-sm-6">
+    <form (ngSubmit)="onLogin()" [formGroup]="loginForm" class="card">
+      <div class="card-body">
+        <div class="mb-0">
+          <h5>Login</h5>
+          <hr>
+        </div>
+        <div class="mb-3">
+          <label for="email">Email:</label>
+          <input id="email" formControlName="userEmail" type="email" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="password">Contrasena:</label>
+          <input id="password" formControlName="userPass" type="password" class="form-control" required="">
+        </div>
+        <div class="mb-0">
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-basket w-100">Entrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-6">
+    <form (ngSubmit)="onRegistration()" [formGroup]="createUserForm" class="card">
+      <div class="card-body">
+        <div class="mb-0">
+          <h5>Crear cuenta</h5>
+          <hr>
+        </div>
+        <div class="mb-3">
+          <label for="nameR">Nombre:</label>
+          <input formControlName="usName" id="nameR" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="secondnameR">Apellido:</label>
+          <input formControlName="usSecName" id="secondnameR" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="emailR">Email:</label>
+          <input formControlName="usEmail" id="emailR" type="email" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="passwordR">Contrasena:</label>
+          <input formControlName="usPass" id="passwordR" type="password" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="cityR">Localidad:</label>
+          <input formControlName="usCity" id="cityR" type="text" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="postcodeR">Codigo Postal:</label>
+          <input formControlName="usPostCode" id="postcodeR" type="number" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="directionR">Direccion:</label>
+          <input formControlName="usDirection" id="directionR" type="text" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+          <label for="phoneR">Telefono:</label>
+          <input formControlName="usPhone" id="phoneR" type="text" class="form-control" required="">
+        </div>
+        <div class="mb-0">
+          <button type="submit" [disabled]="!createUserForm.valid" class="btn btn-basket w-100">Enviar Datos</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

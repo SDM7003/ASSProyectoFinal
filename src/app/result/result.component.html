@@ -1,0 +1,57 @@
+<h3>Datos de envío</h3>
+<hr>
+<div class="row">
+  <div class="col-md-8">
+    <form>
+      <div class="mb-3">
+        <label for="nameBox">Nombre:</label>
+        <input type="text" id="nameBox" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="secondNameBox">Apellidos:</label>
+        <input type="text" id="secondNameBox" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="emailBox">Email:</label>
+        <input type="email"  id="emailBox" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="local">Localidad:</label>
+        <input type="text"  id="local" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="postCode">Código postal:</label>
+        <input type="text"  id="postCode" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="direction">Dirección:</label>
+        <input type="text"  id="direction" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="tel">Teléfono:</label>
+        <input type="tel"  id="tel" class="form-control" required>
+      </div>
+      <hr>
+      <h5>Datos de banco</h5>
+      <hr>
+      <app-card></app-card>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <div class="resultCard">
+      <h6>Resumen del pedido</h6>
+      <div  class="checkOutCard">
+        <div>
+          <span><i>Articulos:</i></span>
+        </div>
+        <div *ngFor="let line of lines">
+          <span>{{line.product.title}} <span *ngIf="line.quantity>1">({{line.quantity}})</span></span> <span class="float-end">{{line.product.price}}€</span>
+        </div>
+        <hr class="mt-1 mb-1">
+        <div class="totalCheck">
+          <span>Total</span> <span class="float-end">{{totalCart | currency:'EUR'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
