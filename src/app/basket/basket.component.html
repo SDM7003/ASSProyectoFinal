@@ -21,5 +21,6 @@
 <h3 class="text-end totalPrice">Total: <span>{{totalCart | currency:'EUR'}}</span></h3>
 <hr>
 <div class="text-end">
-  <a [routerLink]="['/result']" class="btn btn-basket">Realizar pedido</a>
+  <a *ngIf="totalCart===0" class="btn btn-basket disabled">Realizar pedido</a>
+  <a *ngIf="totalCart!=0" [routerLink]="['/result']" class="btn btn-basket">Realizar pedido</a>
 </div>

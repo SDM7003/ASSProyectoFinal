@@ -18,8 +18,9 @@
         <h3 class="finalPrice">{{product.price}} €</h3>
         <span>IVA incluido</span>
       </div>
-      <button *ngIf="product.instock===1"  (click)="addToCartBtn($event)" class="btn btn-basket w-100" type="button">Añadir a la cesta</button>
+      <button *ngIf="product.instock===1 && user"  (click)="addToCartBtn($event)" class="btn btn-basket w-100" type="button">Añadir a la cesta</button>
       <button *ngIf="product.instock===0" class="btn btn-basket w-100" type="button" disabled>Añadir a la cesta</button>
+      <button *ngIf="!user && product.instock!=0"  (click)="goToLogin()" class="btn btn-basket w-100" type="button">Añadir a la cesta</button>
     </div>
   </div>
 </div>

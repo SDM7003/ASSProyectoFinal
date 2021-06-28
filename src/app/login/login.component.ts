@@ -35,28 +35,30 @@ export class LoginComponent implements OnInit {
   get l () {return this.loginForm.controls;}
 
   ngOnInit(): void {
+    this.libservice.getUserPorEmail(localStorage.getItem('token')).subscribe(c=>{
+      this.user=c;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
+      this.router.navigate(['account']);
+    });
   }
 
   onLogin() {
     this.libservice.login(this.l.userEmail.value, this.l.userPass.value).subscribe(
       token=>{
-        this.token=token;
-        console.log(token);
-        localStorage.setItem('token', this.token.toString());
-        /// En caso correcto se recupera el cliente registrado
+        token=token.token;
+        localStorage.setItem('token', token.toString());
         this.libservice.getUserPorEmail(token).subscribe
         (
           (userA:User) => {
             this.user = userA;
             localStorage.setItem('cliente', this.user.toString());
             console.log(this.user);
-            this.router.navigate(['account']);
             console.log(token);
+            window.location.reload();
           }
         );
       }
     );
-    //this.router.navigate(['account']);
   }
 
 

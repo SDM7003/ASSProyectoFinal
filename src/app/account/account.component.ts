@@ -11,12 +11,14 @@ import {LoginComponent} from '../login/login.component';
 export class AccountComponent implements OnInit {
 
   user:User;
-  private userEmail;
-  private userPass;
   constructor(private libservice:LibserviceService, private loginPage:LoginComponent) { }
 
   ngOnInit(): void {
-
+    this.libservice.getUserPorEmail(localStorage.getItem('token')).subscribe(c=>{
+      this.user=c;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
+      console.log(this.user);
+    });
   }
 
 }

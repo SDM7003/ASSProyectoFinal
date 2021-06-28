@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LibserviceService} from '../shared/libservice.service';
+import {User} from '../shared/book.model';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ export class ProductComponent implements OnInit {
   public product;
   public relatedProducts = [];
   public subscriptions = [];
-  constructor( protected route: ActivatedRoute,
+  constructor( protected route: ActivatedRoute,private router:Router,
                protected libservice:LibserviceService) {
     this.subscriptions.push(this.route.params.subscribe(params => {
       let id = params['id'];
@@ -30,11 +31,18 @@ export class ProductComponent implements OnInit {
 
     console.log("call to constructor");
   }
-
+  user:User;
   ngOnInit(): void {
+    this.libservice.getUserPorEmail(localStorage.getItem('token')).subscribe(c=>{
+      this.user=c;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
+    });
   }
   public addToCartBtn(event){
     this.libservice.addItemToCart(this.product,1);
+  }
+  public goToLogin(){
+    this.router.navigate(['/login'])
   }
 
 }

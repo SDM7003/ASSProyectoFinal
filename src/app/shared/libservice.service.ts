@@ -18,6 +18,7 @@ export class LibserviceService {
   private readonly HS_API_URL='http://127.0.0.1:3000';
   private token : string;
   private headers = new HttpHeaders;
+  private user:User;
   constructor(private http:HttpClient) { }
 
   public getBooks():any{
@@ -50,6 +51,17 @@ export class LibserviceService {
                  ,usCity:string,usPostCode:number,usDirection:string,usPhone:string):Observable<any>{
     let user:User={name:usName, secondname:usSecName, email:usEmail, password:usPass, city:usCity, postcode:usPostCode,direction:usDirection, tel:usPhone};
     return this.http.post<any>(`${this.HS_API_URL}/register`, user);
+  }
+
+  result = {
+    name_res:'',
+    secondname_res: '',
+    email_res: '',
+    local_res: '',
+    postcode_res: '',
+    direction_res: '',
+    tel_res:'',
+    resultPrice:''
   }
 
   protected cart = [];

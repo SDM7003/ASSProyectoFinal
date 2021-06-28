@@ -1,3 +1,13 @@
 <div *ngIf="user">
-  <p>{{user.email}}</p>
+  <h3 class="mb-4">Bienvinido {{user.user.name}}</h3>
+  <h5>Informacion general de la cuenta:</h5>
+  <p class="mb-0"><b><i>Nombre:</i></b> {{user.user.name}}</p>
+  <p class="mb-0"><b><i>Apellido:</i></b> {{user.user.secondname}}</p>
+  <p class="mb-0"><b><i>Telefono:</i></b> {{user.user.tel}}</p>
+  <p class=""><b><i>Correo:</i></b> {{user.user.email}}</p>
+  <hr>
+  <h5>Informacion del domicilio:</h5>
+  <p class="mb-0"><b><i>Codigo Postal:</i></b> {{user.user.postcode}}</p>
+  <p class="mb-0"><b><i>Ciudad:</i></b> {{user.user.city}}</p>
+  <p class="mb-0"><b><i>Direccion:</i></b> {{user.user.direction}}</p>
 </div>

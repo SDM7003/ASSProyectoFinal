@@ -7,6 +7,7 @@ import {BasketComponent} from './basket/basket.component';
 import {ResultComponent} from './result/result.component';
 import {LoginComponent} from './login/login.component';
 import {AccountComponent} from './account/account.component';
+import {CuentaComponent} from './cuenta/cuenta.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'basket', component: BasketComponent},
   {path:'result',component: ResultComponent},
   {path:'login', component: LoginComponent},
-  {path:'account',component: AccountComponent}
+  {path:'account',component: AccountComponent},
+  {path:'cuenta',component: CuentaComponent}
 ];
 
 @NgModule({
